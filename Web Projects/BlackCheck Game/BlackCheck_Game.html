@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackCheck Game</title>
+</head>
+<body>
+    <style>
+ div{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+    align-items: center;
+ }
+ p{
+    font-weight: bold;
+ }
+ #result{
+    font-size: 30px;
+ }
+ div{
+    border: 3px solid yellow;
+    width: 700px;
+ }
+ #btn2{
+    display: none;
+    margin: 13px 0px;
+    border: none;
+    padding: 7px 35px;
+    font-size: 20px;
+    background-color: yellow;
+    border-radius: 9px;
+ }
+ #btn1{
+   
+    border: none;
+    padding: 7px 25px;
+    font-size: 20px;
+    background-color: yellow;
+    border-radius: 9px;
+    margin: 9px 0px;
+ }
+ #btn3{
+   
+    border: none;
+    padding: 7px 25px;
+    font-size: 20px;
+    background-color: yellow;
+    border-radius: 9px;
+    margin: 9px 0px;
+ }
+    </style>
+    <div>
+
+        <p id="result">Play BlackCheck</p>
+        <p id="cards_num">Cards:</p>
+        <p id="totalscore">Score:</p>
+        <button id="btn1" onclick="startGame();">Start Game</button>
+        <button id="btn2" onclick="restartGame()">Restart Game</button>
+        <button id="btn3" onclick="newCard()">New Card</button>
+    </div>
+    <script>
+     function randomNumber() {
+    return Math.floor(((Math.random()*13) + 1));
+}
+let arr = [];
+let count = 0;
+let sum =0 ;
+let results = document.getElementById('result')
+let score = document.getElementById('totalscore');
+let show = document.getElementById('btn1')
+let show1 = document.getElementById('btn2')
+let btn3 = document.getElementById('btn3')
+btn3.style.display = 'none';
+let cards = document.getElementById('cards_num')
+function restartGame(){
+    sum = 0; 
+    let score = document.getElementById('totalscore');
+    score.textContent = sum;
+  
+  let kk = arr.length;
+  console.log(kk);
+    for( let i=0; i<kk;i++){
+        arr.pop();
+    }
+    cards.textContent = 'Cards:'
+    score.textContent = 'Score:'
+    show.style.display= 'flex' ;
+    show1.style.display = 'none' ;
+}
+function startGame() {
+    btn3.style.display = "flex";
+   started();
+   started();
+   showcase();
+  
+}
+function newCard(){
+    started();
+}
+function showcase(){
+    show.style.display= 'none' ;
+    show1.style.display = 'flex' ;
+    
+}
+function started(){
+   
+   
+    if (randomNumber() === 1) {
+        arr[count] = 10;
+        cards.textContent +=  " " + arr[count]
+        sum += arr[count]
+        count++;
+        score.textContent = 'Score: ' + sum;
+        console.log(sum)
+        
+    }
+    else if  (randomNumber()>=11){
+        arr[count]= 1;
+        cards.textContent +=  " " + arr[count]
+        sum += arr[count]
+        score.textContent ='Score: ' + sum;
+        count++;
+    }
+    else{
+        arr[count]= randomNumber();
+        sum += arr[count]
+        cards.textContent +=  " " + arr[count]
+        score.textContent = 'Score: ' +sum;
+        count++;
+    }
+    if (sum < 21) {
+    
+        results.textContent = "You are Safe wanna slip more new cards"
+    }
+    else if(sum === 21){
+        results.textContent = " you won Blackcheck Buddy."
+    }
+    
+    else {
+        results.textContent = " you lost Blackcheck friend "
+        btn3.style.display = 'none';
+        
+    }
+}
+
+
+
+
+    </script>
+</body>
+</html>
