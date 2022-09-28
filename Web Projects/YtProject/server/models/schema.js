@@ -26,17 +26,19 @@ const TaskSchema = new mongoose.Schema({
     }
   })
   const LoginSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+    },
     email: {
         type: String,
         required: [true, 'must provide title of Video'],
-        trim: true
+        unique: true
         
     },
     password:{
         type: String,
         required: [true, 'must provide title of Video'],
-        trim: true,
-        minlength: [8, 'password can not be less than 8 characters'],
     }
   })
 const TaskSchemas = mongoose.model('videoDetails',TaskSchema)
