@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+button:hover {
+  cursor: pointer;
+}
+.right button {
+  display: none;
+  margin-left: auto;
+}
+.searchMobile {
+  display: none;
+  margin-left: auto;
+}
+.Navbar {
+  background-color: blueviolet;
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+}
+
+.left {
+  margin-left: 2rem;
+  flex: 20%;
+  font-size: 1.6rem;
+}
+.links .sign {
+  width: 8rem;
+  height: 3rem;
+}
+
+.right {
+  flex: 30%;
+  margin-right: 0;
+  justify-content: right;
+  align-items: center;
+}
+
+#hidden {
+  display: flex;
+}
+
+.links {
+  display: flex;
+  max-height: 5rem;
+  margin-right: 1rem;
+  justify-content: flex-end;
+}
+.links a {
+  font-size: 1.8rem;
+  text-decoration: none;
+  color: red;
+  margin-left: 1rem;
+}
+.links div{
+  text-align: center;
+  font-size: 1.7rem;
+  color:  rgb(30, 29, 29);
+  background-color: wheat;
+  display: block;
+  padding: .2rem 1rem;
+  width: 6rem;
+  border-radius: 5rem;
+  margin-left: 1rem;
+}
+@media screen and (max-width: 60rem) {
+  .Navbar {
+    height: 4rem;
+  }
+  .left {
+    flex: 24%;
+  }
+  
+  .right {
+    flex: 20%;
+  }
+  .right button {
+    display: flex;
+  }
+  #hidden {
+    position: absolute;
+    padding: 0.2rem 0rem;
+    left: 0rem;
+    top: 4rem;
+    width: 100%;
+    max-height: 330px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rebeccapurple;
+  }
+  .links {
+    display: none;
+  }
+  .links a {
+    font-size: 1.4rem;
+    margin-top: 1rem;
+  }
+  .links div{
+    font-size: 1.4rem;
+    margin-top: .8rem;
+    margin-bottom: .3rem;
+  }
+}
+@media screen and (max-width: 32rem) {
+  .Navbar {
+    height: 3rem;
+  }
+  .left {
+    flex: 54%;
+  }
+  .right{
+    margin-right: 0;
+  }
+  #hidden {
+    top: 3rem;
+  }
+  
+  #hiddenFind,  #hiddenFindBtn {
+    
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 2px;
+   
+    top: 3.1rem;
+  }
+  #hiddenFind{
+width: 98%;
+  }
+  #hiddenFindBtn{
+   top: 5.5rem;
+   width: 4rem;
+  }
+}

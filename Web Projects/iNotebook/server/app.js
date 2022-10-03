@@ -1,11 +1,13 @@
 const express = require("express");
 const router = require("./routes/notes");
+const cors = require('cors')
 const connectDB = require("./db/connect");
 const jwt = require("jsonwebtoken");
 const { StoreAuth } = require("./models/schema");
 const bcrypt = require("bcryptjs");
 const secret = "mysupersaiyansecret";
 const app = express();
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use("/api", router);
