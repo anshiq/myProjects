@@ -6,9 +6,9 @@ const {selectedMeal, closeModal} = useGlobalContext();
   return (
     <aside className='modal-overlay'>
 <div className='modal-container'>
-<img src={selectedMeal.strMealThumb} alt={selectedMeal.strMeal} />
+<img style={{width:"3rem"}} src={selectedMeal.strMealThumb} alt={selectedMeal.strMeal} />
 <p>{selectedMeal.strInstructions}</p>
-<a href={selectedMeal.strSource} target='_blank'>View full recepie</a>
+<a href={selectedMeal.strSource} rel='noreferrer' target='_blank'>View full recepie</a>
 <button onClick={closeModal}>Close</button>
 </div>
     </aside>

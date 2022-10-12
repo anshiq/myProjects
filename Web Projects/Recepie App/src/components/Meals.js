@@ -3,7 +3,7 @@ import {BsHandThumbsUp} from 'react-icons/bs'
 import { useGlobalContext } from './context/Context'
 export default function Meals() {
   const meals = useGlobalContext().meals;
-  const {loading,selectMeal,addtoFavorite,removeFromFavorite } = useGlobalContext();
+  const {loading,selectMeal,addtoFavorite } = useGlobalContext();
   if(loading){
     return <section>
       <h1>loading......</h1>
@@ -18,7 +18,7 @@ export default function Meals() {
   }
 const allMeal = meals.map((eachmeal)=>{
   return <article className='single-meal' key={eachmeal.idMeal}>
-    <img src={eachmeal.strMealThumb} className= 'img' onClick={()=>selectMeal(eachmeal.idMeal)} style={{width: '200px'}}/>
+    <img src={eachmeal.strMealThumb} className= 'img' onClick={()=>selectMeal(eachmeal.idMeal,false)} alt='sorry' style={{width: '200px'}}/>
     <footer>
       <h5>{eachmeal.strMeal}</h5>
       <button onClick={()=>addtoFavorite(eachmeal.idMeal)} className='like-btn'><BsHandThumbsUp/></button>
